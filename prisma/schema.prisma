@@ -14,3 +14,66 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+model user {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  role      String   @default("user")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model products {
+  id          Int               @id @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  categoryId  Int
+  category    categories        @relation(fields: [categoryId], references: [id])
+  variants    product_variants[]
+  images      product_images[]
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+}
+
+model categories {
+  id        Int         @id @default(autoincrement())
+  name      String
+  genderId  Int
+  gender    gender      @relation(fields: [genderId], references: [id])
+  products  products[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model gender {
+  id        Int         @id @default(autoincrement())
+  name      String
+  categories categories[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model product_variants {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  product   products @relation(fields: [productId], references: [id])
+  size      String
+  color     String
+  price     Float
+  stock     Int
+  sku       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model product_images {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  product   products @relation(fields: [productId], references: [id])
+  url       String
+  alt       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
