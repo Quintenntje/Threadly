@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "./Button";
+import Link from "@/components/Link";
 
 const Hero = () => {
   return (
@@ -17,20 +17,12 @@ const Hero = () => {
         <h1 className="sm:text-7xl text-5xl font-bold font-serif mb-4 text-white">
           Explore the Latest Trends
         </h1>
-        <p className="sm:text-lg text-base font-sans text-white">
+        <p className="sm:text-lg text-base font-sans text-white mb-4">
           Discover the best clothing and accessories for every occasion
         </p>
-        <Button variant="secondary" className="mt-4">
+        <Link href="/products" variant="secondary" >
           Shop Now
-        </Button>
-        <div className="flex gap-4">
-          <Button variant="primary" className="mt-4">
-            Shop Now
-          </Button>
-          <Button variant="secondary" className="mt-4">
-            Shop Now
-          </Button>
-        </div>
+        </Link>
       </div>
     </div>
   );
