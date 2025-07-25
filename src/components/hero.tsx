@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Button from "./Button";
 
 const Hero = () => {
   return (
@@ -19,9 +20,17 @@ const Hero = () => {
         <p className="sm:text-lg text-base font-sans text-white">
           Discover the best clothing and accessories for every occasion
         </p>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4">
+        <Button variant="secondary" className="mt-4">
           Shop Now
-        </button>
+        </Button>
+        <div className="flex gap-4">
+          <Button variant="primary" className="mt-4">
+            Shop Now
+          </Button>
+          <Button variant="secondary" className="mt-4">
+            Shop Now
+          </Button>
+        </div>
       </div>
     </div>
   );
