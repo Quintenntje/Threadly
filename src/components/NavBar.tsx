@@ -7,7 +7,7 @@ import { useState } from "react";
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <nav className="relative w-full p-4">
+    <nav className="relative w-full p-4 max-w-7xl mx-auto">
       <div className="flex items-center justify-between w-full">
         
         <div className="flex items-center flex-shrink-0">
