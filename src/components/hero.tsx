@@ -20,7 +20,7 @@ const Hero = () => {
         <p className="sm:text-lg text-base font-sans text-white mb-4">
           Discover the best clothing and accessories for every occasion
         </p>
-        <Link href="/products" variant="secondary" >
+        <Link href="/products" variant="secondary">
           Shop Now
         </Link>
       </div>
