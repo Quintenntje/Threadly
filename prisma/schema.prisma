@@ -9,6 +9,8 @@ generator client {
   output   = "../src/generated/prisma"
 }
 
+/// @seed="tsx prisma/seed.ts"
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
