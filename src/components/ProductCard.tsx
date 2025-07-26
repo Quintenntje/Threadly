@@ -1,6 +1,7 @@
 import { PrismaClient } from "../generated/prisma";
 import Image from "next/image";
 import { products } from "../generated/prisma";
+import FullLink from "./FullLink";
 
 interface ProductCardProps {
   product: products;
@@ -17,7 +18,8 @@ const ProductCard = async ({ product }: ProductCardProps) => {
 
   const { name, price } = product;
   return (
-    <article>
+    <article className="relative">
+      <FullLink href={`/product/${product.id}`}/>
       <Image
         src={productImages[0].url}
         alt="Product image"
