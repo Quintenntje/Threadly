@@ -18,17 +18,19 @@ const ProductCard = async ({ product }: ProductCardProps) => {
 
   const { name, price } = product;
   return (
-    <article className="relative">
+    <article className="flex flex-col items-center justify-center relative">
       <FullLink href={`/product/${product.id}`}/>
       <Image
         src={productImages[0].url}
         alt="Product image"
         width={300}
         height={300}
-        className="w-72 h-72 object-cover"
+        className="w-72 h-72 object-cover mb-4"
       />
-      <h3>{name}</h3>
-      <p>{price}</p>
+      <div className="flex flex-col items-center justify-center gap-2">
+        <h3>{name}</h3>
+        <p className="text-sm text-gray-500">€{price}</p>
+      </div>
     </article>
   );
 };
