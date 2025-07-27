@@ -113,12 +113,12 @@ const NavBar = () => {
             <Link href={`/${byGender}`}>Home</Link>
           </li>
           <li className="text-sm font-medium hover:text-gray-500">
-            <Link href={`/${byGender}/clothing`}>Kleding</Link>
+            <Link href={`/${byGender}/clothing`}>Clothing</Link>
           </li>
           <li className="text-sm font-medium hover:text-gray-500">
-            <Link href={`/${byGender}/shoes`}>Schoenen</Link>
+            <Link href={`/${byGender}/shoes`}>Shoes</Link>
           </li>
-
+          
           <li className="text-sm font-medium hover:text-gray-500">
             <Link href={`/${byGender}/accessories`}>Accessoires</Link>
           </li>
