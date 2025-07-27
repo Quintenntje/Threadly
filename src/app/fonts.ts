@@ -1,12 +1,13 @@
 // app/fonts.ts
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Inter, Crimson_Text } from 'next/font/google';
 
 export const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 });
 
-export const playfair = Playfair_Display({
+export const crimson = Crimson_Text({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-crimson',
+  weight: ['400', '600', '700'],
 });

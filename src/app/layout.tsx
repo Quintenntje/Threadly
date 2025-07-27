@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter, playfair } from "./fonts";
+import { inter, crimson } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${inter.variable} ${crimson.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );
