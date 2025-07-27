@@ -8,6 +8,8 @@ import { usePathname } from "next/navigation";
 import MegaMenu from "./MegaMenu/MegaMenu";
 import MegaMenuItem from "./MegaMenu/MegaMenuItem";
 import MegeMenuCol from "./MegaMenu/MegeMenuCol";
+import ExpandDropdown from "./ExpandDropdown/ExpandDropdown";
+import ExpandDropdownItem from "./ExpandDropdown/ExpandDropdownItem";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -58,7 +60,6 @@ const NavBar = () => {
           <li className="relative">
             <div
               onMouseEnter={() => handleMegaMenu("men")}
-
               className="text-lg font-medium hover:text-gray-500"
             >
               <Link href="/men">Men</Link>
@@ -68,7 +69,6 @@ const NavBar = () => {
           <li className="relative">
             <div
               onMouseEnter={() => handleMegaMenu("woman")}
-            
               className="text-lg font-medium hover:text-gray-500"
             >
               <Link href="/woman">Woman</Link>
@@ -78,7 +78,6 @@ const NavBar = () => {
           <li className="relative">
             <div
               onMouseEnter={() => handleMegaMenu("kids")}
-            
               className="text-lg font-medium hover:text-gray-500"
             >
               <Link href="/kids">Kids</Link>
@@ -115,7 +114,7 @@ const NavBar = () => {
         <MegaMenu onMouseLeave={handleCloseMegaMenu}>
           <div className="max-w-7xl mx-auto p-8 grid grid-cols-4 gap-8">
             <MegeMenuCol title="Clothing">
-                <MegaMenuItem href="/men/t-shirts">T-Shirts</MegaMenuItem>
+              <MegaMenuItem href="/men/t-shirts">T-Shirts</MegaMenuItem>
               <MegaMenuItem href="/men/shirts">Shirts</MegaMenuItem>
               <MegaMenuItem href="/men/jeans">Jeans</MegaMenuItem>
               <MegaMenuItem href="/men/pants">Pants</MegaMenuItem>
@@ -146,9 +145,7 @@ const NavBar = () => {
             </MegeMenuCol>
 
             <MegeMenuCol title="Activewear">
-              <MegaMenuItem href="/men/workout-tops">
-                Workout Tops
-              </MegaMenuItem>
+              <MegaMenuItem href="/men/workout-tops">Workout Tops</MegaMenuItem>
               <MegaMenuItem href="/men/workout-bottoms">
                 Workout Bottoms
               </MegaMenuItem>
@@ -263,10 +260,8 @@ const NavBar = () => {
               <MegaMenuItem href="/kids/school-uniforms">
                 School Uniforms
               </MegaMenuItem>
-                <MegaMenuItem href="/kids/backpacks">Backpacks</MegaMenuItem>
-              <MegaMenuItem href="/kids/lunch-boxes">
-                Lunch Boxes
-              </MegaMenuItem>
+              <MegaMenuItem href="/kids/backpacks">Backpacks</MegaMenuItem>
+              <MegaMenuItem href="/kids/lunch-boxes">Lunch Boxes</MegaMenuItem>
               <MegaMenuItem href="/kids/school-shoes">
                 School Shoes
               </MegaMenuItem>
@@ -304,21 +299,271 @@ const NavBar = () => {
 
         <div />
 
-        <ul className="grid grid-cols-2 gap-4 w-full">
-          <li className="text-sm font-medium hover:text-gray-500">
-            <Link href={`/${byGender}`}>Home</Link>
-          </li>
-          <li className="text-sm font-medium hover:text-gray-500">
-            <Link href={`/${byGender}/clothing`}>Clothing</Link>
-          </li>
-          <li className="text-sm font-medium hover:text-gray-500">
-            <Link href={`/${byGender}/shoes`}>Shoes</Link>
-          </li>
+        {byGender === "Men" && (
+          <div className="flex flex-col gap-4 w-full">
+            <ExpandDropdown title="Clothing" href="/men">
+              <ExpandDropdownItem href="/men/t-shirts">
+                T-Shirts
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/shirts">Shirts</ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/jeans">Jeans</ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/pants">Pants</ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/shorts">Shorts</ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/jackets">
+                Jackets
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/hoodies">
+                Hoodies
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/sweaters">
+                Sweaters
+              </ExpandDropdownItem>
+            </ExpandDropdown>
 
-          <li className="text-sm font-medium hover:text-gray-500">
-            <Link href={`/${byGender}/accessories`}>Accessoires</Link>
-          </li>
-        </ul>
+            <ExpandDropdown title="Shoes" href="/men">
+              <ExpandDropdownItem href="/men/sneakers">
+                Sneakers
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/boots">Boots</ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/dress-shoes">
+                Dress Shoes
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/sandals">
+                Sandals
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/athletic">
+                Athletic
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/casual">Casual</ExpandDropdownItem>
+            </ExpandDropdown>
+
+            <ExpandDropdown title="Accessories" href="/men">
+              <ExpandDropdownItem href="/men/watches">
+                Watches
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/belts">Belts</ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/wallets">
+                Wallets
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/bags">Bags</ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/jewelry">
+                Jewelry
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/sunglasses">
+                Sunglasses
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/hats">Hats</ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/scarves">
+                Scarves
+              </ExpandDropdownItem>
+            </ExpandDropdown>
+
+            <ExpandDropdown title="Activewear" href="/men">
+              <ExpandDropdownItem href="/men/workout-tops">
+                Workout Tops
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/workout-bottoms">
+                Workout Bottoms
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/sports-jackets">
+                Sports Jackets
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/athletic-shoes">
+                Athletic Shoes
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/swimwear">
+                Swimwear
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/men/underwear">
+                Underwear
+              </ExpandDropdownItem>
+            </ExpandDropdown>
+          </div>
+        )}
+
+        {byGender === "Woman" && (
+          <div className="flex flex-col gap-4 w-full">
+            <ExpandDropdown title="Clothing" href="/woman">
+              <ExpandDropdownItem href="/woman/dresses">
+                Dresses
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/tops">Tops</ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/blouses">
+                Blouses
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/jeans">Jeans</ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/pants">Pants</ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/skirts">
+                Skirts
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/jackets">
+                Jackets
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/sweaters">
+                Sweaters
+              </ExpandDropdownItem>
+            </ExpandDropdown>
+
+            <ExpandDropdown title="Shoes" href="/woman">
+              <ExpandDropdownItem href="/woman/heels">Heels</ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/flats">Flats</ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/boots">Boots</ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/sneakers">
+                Sneakers
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/sandals">
+                Sandals
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/athletic">
+                Athletic
+              </ExpandDropdownItem>
+            </ExpandDropdown>
+
+            <ExpandDropdown title="Accessories" href="/woman">
+              <ExpandDropdownItem href="/woman/handbags">
+                Handbags
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/wallets">
+                Wallets
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/jewelry">
+                Jewelry
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/watches">
+                Watches
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/scarves">
+                Scarves
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/belts">Belts</ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/sunglasses">
+                Sunglasses
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/hair-accessories">
+                Hair Accessories
+              </ExpandDropdownItem>
+            </ExpandDropdown>
+
+            <ExpandDropdown title="Intimates & Swim" href="/woman">
+              <ExpandDropdownItem href="/woman/bras">Bras</ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/underwear">
+                Underwear
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/lingerie">
+                Lingerie
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/swimsuits">
+                Swimsuits
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/cover-ups">
+                Cover-ups
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/woman/sleepwear">
+                Sleepwear
+              </ExpandDropdownItem>
+            </ExpandDropdown>
+          </div>
+        )}
+
+        {byGender === "Kids" && (
+          <div className="flex flex-col gap-4 w-full">
+            <ExpandDropdown title="Boys (2-16)" href="/kids">
+              <ExpandDropdownItem href="/kids/boys/t-shirts">
+                T-Shirts
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/boys/shirts">
+                Shirts
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/boys/jeans">
+                Jeans
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/boys/pants">
+                Pants
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/boys/shorts">
+                Shorts
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/boys/jackets">
+                Jackets
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/boys/shoes">
+                Shoes
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/boys/accessories">
+                Accessories
+              </ExpandDropdownItem>
+            </ExpandDropdown>
+
+            <ExpandDropdown title="Girls (2-16)" href="/kids">
+              <ExpandDropdownItem href="/kids/girls/dresses">
+                Dresses
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/girls/tops">
+                Tops
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/girls/jeans">
+                Jeans
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/girls/skirts">
+                Skirts
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/girls/shorts">
+                Shorts
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/girls/jackets">
+                Jackets
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/girls/shoes">
+                Shoes
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/girls/accessories">
+                Accessories
+              </ExpandDropdownItem>
+            </ExpandDropdown>
+
+            <ExpandDropdown title="Babies (0-24m)" href="/kids">
+              <ExpandDropdownItem href="/kids/babies/onesies">
+                Onesies
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/babies/bodysuits">
+                Bodysuits
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/babies/sleepwear">
+                Sleepwear
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/babies/outerwear">
+                Outerwear
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/babies/shoes">
+                Shoes
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/babies/accessories">
+                Accessories
+              </ExpandDropdownItem>
+            </ExpandDropdown>
+
+            <ExpandDropdown title="School & Uniforms" href="/kids">
+              <ExpandDropdownItem href="/kids/school-uniforms">
+                School Uniforms
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/backpacks">
+                Backpacks
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/lunch-boxes">
+                Lunch Boxes
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/school-shoes">
+                School Shoes
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/activewear">
+                Activewear
+              </ExpandDropdownItem>
+              <ExpandDropdownItem href="/kids/swimwear">
+                Swimwear
+              </ExpandDropdownItem>
+            </ExpandDropdown>
+          </div>
+        )}
       </div>
     </nav>
   );
