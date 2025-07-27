@@ -1,4 +1,4 @@
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/Nav/NavBar";
 import Hero from "@/components/hero";
 import { PrismaClient } from "../generated/prisma";
 import ProductCard from "@/components/ProductCard";

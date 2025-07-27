@@ -23,11 +23,11 @@ async function main() {
     data: { name: "Female" },
   });
 
-  const unisex = await prisma.gender.create({
-    data: { name: "Unisex" },
+  const kids = await prisma.gender.create({
+    data: { name: "Kids" },
   });
 
-  console.log("👥 Created genders");
+  console.log("👥 Created genders");  
 
   // Create categories
   const categories = await Promise.all([
@@ -47,10 +47,10 @@ async function main() {
       data: { name: "Blouses", genderId: female.id },
     }),
     prisma.categories.create({
-      data: { name: "Sneakers", genderId: unisex.id },
+      data: { name: "Sneakers", genderId: kids.id },
     }),
     prisma.categories.create({
-      data: { name: "Accessories", genderId: unisex.id },
+      data: { name: "Accessories", genderId: kids.id },
     }),
   ]);
 

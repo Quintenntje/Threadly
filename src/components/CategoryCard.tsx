@@ -2,8 +2,7 @@ import { categories } from "@/generated/prisma";
 import FullLink from "./FullLink";
 
 interface CategoryCardProps {
-    category: categories;
-    fullLink: React.ReactNode;  
+    category: categories;  
 }
 
 const CategoryCard = ({ category }: CategoryCardProps) => {
