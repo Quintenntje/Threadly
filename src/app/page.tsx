@@ -15,12 +15,12 @@ export default async function Home() {
     <div>
       <NavBar />
       <Hero />
-      <section className="grid justify-center items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <section className="grid justify-center items-center grid-cols-1 space-x-4 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </section>
-      <section className="grid justify-center items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <section className="grid justify-center items-center grid-cols-1 space-x-4 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {categories.map((category) => (
           <CategoryCard key={category.id} category={category} />
         ))}
