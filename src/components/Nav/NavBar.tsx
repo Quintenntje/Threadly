@@ -44,7 +44,10 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="relative w-full h-full p-4 max-w-7xl mx-auto">
+    <nav
+      onMouseLeave={() => setMegaMenuOpen(null)}
+      className="relative w-full h-full p-4 max-w-7xl mx-auto"
+    >
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center flex-shrink-0">
           <Link href="/">

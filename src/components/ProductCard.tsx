@@ -19,7 +19,7 @@ const ProductCard = async ({ product }: ProductCardProps) => {
   const { name, price } = product;
   return (
     <article className="flex flex-col items-center justify-center relative">
-      <FullLink href={`/product/${product.id}`}/>
+      <FullLink href={`/product/${product.id}`} />
       <Image
         src={productImages[0].url}
         alt="Product image"
