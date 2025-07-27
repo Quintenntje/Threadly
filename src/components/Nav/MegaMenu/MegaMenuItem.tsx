@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-interface MegaMenuItemsProps {
+interface MegaMenuItemProps {
   children: React.ReactNode;
   href: string;
 }
 
-const MegaMenuItems = ({ children, href }: MegaMenuItemsProps) => {
+const MegaMenuItem = ({ children, href }: MegaMenuItemProps) => {
   return (
     <li className="inline-block text-sm font-medium hover:text-gray-500">
       <Link href={href}>{children}</Link>
@@ -13,4 +13,4 @@ const MegaMenuItems = ({ children, href }: MegaMenuItemsProps) => {
   );
 };
 
-export default MegaMenuItems;
+export default MegaMenuItem;

@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import ByGender from "./ByGender";
 import { usePathname } from "next/navigation";
 import MegaMenu from "./MegaMenu/MegaMenu";
-import MegaMenuItems from "./MegaMenu/MegaMenuItems";
+import MegaMenuItem from "./MegaMenu/MegaMenuItem";
 import MegeMenuCol from "./MegaMenu/MegeMenuCol";
 
 const NavBar = () => {
@@ -42,7 +42,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="relative w-full p-4 max-w-7xl mx-auto">
+    <nav className="relative w-full h-full p-4 max-w-7xl mx-auto">
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center flex-shrink-0">
           <Link href="/">
@@ -115,51 +115,51 @@ const NavBar = () => {
         <MegaMenu onMouseLeave={handleCloseMegaMenu}>
           <div className="max-w-7xl mx-auto p-8 grid grid-cols-4 gap-8">
             <MegeMenuCol title="Clothing">
-              <MegaMenuItems href="/men/t-shirts">T-Shirts</MegaMenuItems>
-              <MegaMenuItems href="/men/shirts">Shirts</MegaMenuItems>
-              <MegaMenuItems href="/men/jeans">Jeans</MegaMenuItems>
-              <MegaMenuItems href="/men/pants">Pants</MegaMenuItems>
-              <MegaMenuItems href="/men/shorts">Shorts</MegaMenuItems>
-              <MegaMenuItems href="/men/jackets">Jackets</MegaMenuItems>
-              <MegaMenuItems href="/men/hoodies">Hoodies</MegaMenuItems>
-              <MegaMenuItems href="/men/sweaters">Sweaters</MegaMenuItems>
+                <MegaMenuItem href="/men/t-shirts">T-Shirts</MegaMenuItem>
+              <MegaMenuItem href="/men/shirts">Shirts</MegaMenuItem>
+              <MegaMenuItem href="/men/jeans">Jeans</MegaMenuItem>
+              <MegaMenuItem href="/men/pants">Pants</MegaMenuItem>
+              <MegaMenuItem href="/men/shorts">Shorts</MegaMenuItem>
+              <MegaMenuItem href="/men/jackets">Jackets</MegaMenuItem>
+              <MegaMenuItem href="/men/hoodies">Hoodies</MegaMenuItem>
+              <MegaMenuItem href="/men/sweaters">Sweaters</MegaMenuItem>
             </MegeMenuCol>
 
             <MegeMenuCol title="Shoes">
-              <MegaMenuItems href="/men/sneakers">Sneakers</MegaMenuItems>
-              <MegaMenuItems href="/men/boots">Boots</MegaMenuItems>
-              <MegaMenuItems href="/men/dress-shoes">Dress Shoes</MegaMenuItems>
-              <MegaMenuItems href="/men/sandals">Sandals</MegaMenuItems>
-              <MegaMenuItems href="/men/athletic">Athletic</MegaMenuItems>
-              <MegaMenuItems href="/men/casual">Casual</MegaMenuItems>
+              <MegaMenuItem href="/men/sneakers">Sneakers</MegaMenuItem>
+              <MegaMenuItem href="/men/boots">Boots</MegaMenuItem>
+              <MegaMenuItem href="/men/dress-shoes">Dress Shoes</MegaMenuItem>
+              <MegaMenuItem href="/men/sandals">Sandals</MegaMenuItem>
+              <MegaMenuItem href="/men/athletic">Athletic</MegaMenuItem>
+              <MegaMenuItem href="/men/casual">Casual</MegaMenuItem>
             </MegeMenuCol>
 
             <MegeMenuCol title="Accessories">
-              <MegaMenuItems href="/men/watches">Watches</MegaMenuItems>
-              <MegaMenuItems href="/men/belts">Belts</MegaMenuItems>
-              <MegaMenuItems href="/men/wallets">Wallets</MegaMenuItems>
-              <MegaMenuItems href="/men/bags">Bags</MegaMenuItems>
-              <MegaMenuItems href="/men/jewelry">Jewelry</MegaMenuItems>
-              <MegaMenuItems href="/men/sunglasses">Sunglasses</MegaMenuItems>
-              <MegaMenuItems href="/men/hats">Hats</MegaMenuItems>
-              <MegaMenuItems href="/men/scarves">Scarves</MegaMenuItems>
+              <MegaMenuItem href="/men/watches">Watches</MegaMenuItem>
+              <MegaMenuItem href="/men/belts">Belts</MegaMenuItem>
+              <MegaMenuItem href="/men/wallets">Wallets</MegaMenuItem>
+              <MegaMenuItem href="/men/bags">Bags</MegaMenuItem>
+              <MegaMenuItem href="/men/jewelry">Jewelry</MegaMenuItem>
+              <MegaMenuItem href="/men/sunglasses">Sunglasses</MegaMenuItem>
+              <MegaMenuItem href="/men/hats">Hats</MegaMenuItem>
+              <MegaMenuItem href="/men/scarves">Scarves</MegaMenuItem>
             </MegeMenuCol>
 
             <MegeMenuCol title="Activewear">
-              <MegaMenuItems href="/men/workout-tops">
+              <MegaMenuItem href="/men/workout-tops">
                 Workout Tops
-              </MegaMenuItems>
-              <MegaMenuItems href="/men/workout-bottoms">
+              </MegaMenuItem>
+              <MegaMenuItem href="/men/workout-bottoms">
                 Workout Bottoms
-              </MegaMenuItems>
-              <MegaMenuItems href="/men/sports-jackets">
+              </MegaMenuItem>
+              <MegaMenuItem href="/men/sports-jackets">
                 Sports Jackets
-              </MegaMenuItems>
-              <MegaMenuItems href="/men/athletic-shoes">
+              </MegaMenuItem>
+              <MegaMenuItem href="/men/athletic-shoes">
                 Athletic Shoes
-              </MegaMenuItems>
-              <MegaMenuItems href="/men/swimwear">Swimwear</MegaMenuItems>
-              <MegaMenuItems href="/men/underwear">Underwear</MegaMenuItems>
+              </MegaMenuItem>
+              <MegaMenuItem href="/men/swimwear">Swimwear</MegaMenuItem>
+              <MegaMenuItem href="/men/underwear">Underwear</MegaMenuItem>
             </MegeMenuCol>
           </div>
         </MegaMenu>
@@ -169,45 +169,45 @@ const NavBar = () => {
         <MegaMenu onMouseLeave={handleCloseMegaMenu}>
           <div className="max-w-7xl mx-auto p-8 grid grid-cols-4 gap-8">
             <MegeMenuCol title="Clothing">
-              <MegaMenuItems href="/woman/dresses">Dresses</MegaMenuItems>
-              <MegaMenuItems href="/woman/tops">Tops</MegaMenuItems>
-              <MegaMenuItems href="/woman/blouses">Blouses</MegaMenuItems>
-              <MegaMenuItems href="/woman/jeans">Jeans</MegaMenuItems>
-              <MegaMenuItems href="/woman/pants">Pants</MegaMenuItems>
-              <MegaMenuItems href="/woman/skirts">Skirts</MegaMenuItems>
-              <MegaMenuItems href="/woman/jackets">Jackets</MegaMenuItems>
-              <MegaMenuItems href="/woman/sweaters">Sweaters</MegaMenuItems>
+              <MegaMenuItem href="/woman/dresses">Dresses</MegaMenuItem>
+              <MegaMenuItem href="/woman/tops">Tops</MegaMenuItem>
+              <MegaMenuItem href="/woman/blouses">Blouses</MegaMenuItem>
+              <MegaMenuItem href="/woman/jeans">Jeans</MegaMenuItem>
+              <MegaMenuItem href="/woman/pants">Pants</MegaMenuItem>
+              <MegaMenuItem href="/woman/skirts">Skirts</MegaMenuItem>
+              <MegaMenuItem href="/woman/jackets">Jackets</MegaMenuItem>
+              <MegaMenuItem href="/woman/sweaters">Sweaters</MegaMenuItem>
             </MegeMenuCol>
 
             <MegeMenuCol title="Shoes">
-              <MegaMenuItems href="/woman/heels">Heels</MegaMenuItems>
-              <MegaMenuItems href="/woman/flats">Flats</MegaMenuItems>
-              <MegaMenuItems href="/woman/boots">Boots</MegaMenuItems>
-              <MegaMenuItems href="/woman/sneakers">Sneakers</MegaMenuItems>
-              <MegaMenuItems href="/woman/sandals">Sandals</MegaMenuItems>
-              <MegaMenuItems href="/woman/athletic">Athletic</MegaMenuItems>
+              <MegaMenuItem href="/woman/heels">Heels</MegaMenuItem>
+              <MegaMenuItem href="/woman/flats">Flats</MegaMenuItem>
+              <MegaMenuItem href="/woman/boots">Boots</MegaMenuItem>
+              <MegaMenuItem href="/woman/sneakers">Sneakers</MegaMenuItem>
+              <MegaMenuItem href="/woman/sandals">Sandals</MegaMenuItem>
+              <MegaMenuItem href="/woman/athletic">Athletic</MegaMenuItem>
             </MegeMenuCol>
 
             <MegeMenuCol title="Accessories">
-              <MegaMenuItems href="/woman/handbags">Handbags</MegaMenuItems>
-              <MegaMenuItems href="/woman/wallets">Wallets</MegaMenuItems>
-              <MegaMenuItems href="/woman/jewelry">Jewelry</MegaMenuItems>
-              <MegaMenuItems href="/woman/watches">Watches</MegaMenuItems>
-              <MegaMenuItems href="/woman/scarves">Scarves</MegaMenuItems>
-              <MegaMenuItems href="/woman/belts">Belts</MegaMenuItems>
-              <MegaMenuItems href="/woman/sunglasses">Sunglasses</MegaMenuItems>
-              <MegaMenuItems href="/woman/hair-accessories">
+              <MegaMenuItem href="/woman/handbags">Handbags</MegaMenuItem>
+              <MegaMenuItem href="/woman/wallets">Wallets</MegaMenuItem>
+              <MegaMenuItem href="/woman/jewelry">Jewelry</MegaMenuItem>
+              <MegaMenuItem href="/woman/watches">Watches</MegaMenuItem>
+              <MegaMenuItem href="/woman/scarves">Scarves</MegaMenuItem>
+              <MegaMenuItem href="/woman/belts">Belts</MegaMenuItem>
+              <MegaMenuItem href="/woman/sunglasses">Sunglasses</MegaMenuItem>
+              <MegaMenuItem href="/woman/hair-accessories">
                 Hair Accessories
-              </MegaMenuItems>
+              </MegaMenuItem>
             </MegeMenuCol>
 
             <MegeMenuCol title="Intimates & Swim">
-              <MegaMenuItems href="/woman/bras">Bras</MegaMenuItems>
-              <MegaMenuItems href="/woman/underwear">Underwear</MegaMenuItems>
-              <MegaMenuItems href="/woman/lingerie">Lingerie</MegaMenuItems>
-              <MegaMenuItems href="/woman/swimsuits">Swimsuits</MegaMenuItems>
-              <MegaMenuItems href="/woman/cover-ups">Cover-ups</MegaMenuItems>
-              <MegaMenuItems href="/woman/sleepwear">Sleepwear</MegaMenuItems>
+              <MegaMenuItem href="/woman/bras">Bras</MegaMenuItem>
+              <MegaMenuItem href="/woman/underwear">Underwear</MegaMenuItem>
+              <MegaMenuItem href="/woman/lingerie">Lingerie</MegaMenuItem>
+              <MegaMenuItem href="/woman/swimsuits">Swimsuits</MegaMenuItem>
+              <MegaMenuItem href="/woman/cover-ups">Cover-ups</MegaMenuItem>
+              <MegaMenuItem href="/woman/sleepwear">Sleepwear</MegaMenuItem>
             </MegeMenuCol>
           </div>
         </MegaMenu>
@@ -217,68 +217,68 @@ const NavBar = () => {
         <MegaMenu onMouseLeave={handleCloseMegaMenu}>
           <div className="max-w-7xl mx-auto p-8 grid grid-cols-4 gap-8">
             <MegeMenuCol title="Boys (2-16)">
-              <MegaMenuItems href="/kids/boys/t-shirts">T-Shirts</MegaMenuItems>
-              <MegaMenuItems href="/kids/boys/shirts">Shirts</MegaMenuItems>
-              <MegaMenuItems href="/kids/boys/jeans">Jeans</MegaMenuItems>
-              <MegaMenuItems href="/kids/boys/pants">Pants</MegaMenuItems>
-              <MegaMenuItems href="/kids/boys/shorts">Shorts</MegaMenuItems>
-              <MegaMenuItems href="/kids/boys/jackets">Jackets</MegaMenuItems>
-              <MegaMenuItems href="/kids/boys/shoes">Shoes</MegaMenuItems>
-              <MegaMenuItems href="/kids/boys/accessories">
+              <MegaMenuItem href="/kids/boys/t-shirts">T-Shirts</MegaMenuItem>
+              <MegaMenuItem href="/kids/boys/shirts">Shirts</MegaMenuItem>
+              <MegaMenuItem href="/kids/boys/jeans">Jeans</MegaMenuItem>
+              <MegaMenuItem href="/kids/boys/pants">Pants</MegaMenuItem>
+              <MegaMenuItem href="/kids/boys/shorts">Shorts</MegaMenuItem>
+              <MegaMenuItem href="/kids/boys/jackets">Jackets</MegaMenuItem>
+              <MegaMenuItem href="/kids/boys/shoes">Shoes</MegaMenuItem>
+              <MegaMenuItem href="/kids/boys/accessories">
                 Accessories
-              </MegaMenuItems>
+              </MegaMenuItem>
             </MegeMenuCol>
 
             <MegeMenuCol title="Girls (2-16)">
-              <MegaMenuItems href="/kids/girls/dresses">Dresses</MegaMenuItems>
-              <MegaMenuItems href="/kids/girls/tops">Tops</MegaMenuItems>
-              <MegaMenuItems href="/kids/girls/jeans">Jeans</MegaMenuItems>
-              <MegaMenuItems href="/kids/girls/skirts">Skirts</MegaMenuItems>
-              <MegaMenuItems href="/kids/girls/shorts">Shorts</MegaMenuItems>
-              <MegaMenuItems href="/kids/girls/jackets">Jackets</MegaMenuItems>
-              <MegaMenuItems href="/kids/girls/shoes">Shoes</MegaMenuItems>
-              <MegaMenuItems href="/kids/girls/accessories">
+              <MegaMenuItem href="/kids/girls/dresses">Dresses</MegaMenuItem>
+              <MegaMenuItem href="/kids/girls/tops">Tops</MegaMenuItem>
+              <MegaMenuItem href="/kids/girls/jeans">Jeans</MegaMenuItem>
+              <MegaMenuItem href="/kids/girls/skirts">Skirts</MegaMenuItem>
+              <MegaMenuItem href="/kids/girls/shorts">Shorts</MegaMenuItem>
+              <MegaMenuItem href="/kids/girls/jackets">Jackets</MegaMenuItem>
+              <MegaMenuItem href="/kids/girls/shoes">Shoes</MegaMenuItem>
+              <MegaMenuItem href="/kids/girls/accessories">
                 Accessories
-              </MegaMenuItems>
+              </MegaMenuItem>
             </MegeMenuCol>
 
             <MegeMenuCol title="Babies (0-24m)">
-              <MegaMenuItems href="/kids/babies/onesies">Onesies</MegaMenuItems>
-              <MegaMenuItems href="/kids/babies/bodysuits">
+              <MegaMenuItem href="/kids/babies/onesies">Onesies</MegaMenuItem>
+              <MegaMenuItem href="/kids/babies/bodysuits">
                 Bodysuits
-              </MegaMenuItems>
-              <MegaMenuItems href="/kids/babies/sleepwear">
+              </MegaMenuItem>
+              <MegaMenuItem href="/kids/babies/sleepwear">
                 Sleepwear
-              </MegaMenuItems>
-              <MegaMenuItems href="/kids/babies/outerwear">
+              </MegaMenuItem>
+              <MegaMenuItem href="/kids/babies/outerwear">
                 Outerwear
-              </MegaMenuItems>
-              <MegaMenuItems href="/kids/babies/shoes">Shoes</MegaMenuItems>
-              <MegaMenuItems href="/kids/babies/accessories">
+              </MegaMenuItem>
+              <MegaMenuItem href="/kids/babies/shoes">Shoes</MegaMenuItem>
+              <MegaMenuItem href="/kids/babies/accessories">
                 Accessories
-              </MegaMenuItems>
+              </MegaMenuItem>
             </MegeMenuCol>
 
             <MegeMenuCol title="School & Uniforms">
-              <MegaMenuItems href="/kids/school-uniforms">
+              <MegaMenuItem href="/kids/school-uniforms">
                 School Uniforms
-              </MegaMenuItems>
-              <MegaMenuItems href="/kids/backpacks">Backpacks</MegaMenuItems>
-              <MegaMenuItems href="/kids/lunch-boxes">
+              </MegaMenuItem>
+                <MegaMenuItem href="/kids/backpacks">Backpacks</MegaMenuItem>
+              <MegaMenuItem href="/kids/lunch-boxes">
                 Lunch Boxes
-              </MegaMenuItems>
-              <MegaMenuItems href="/kids/school-shoes">
+              </MegaMenuItem>
+              <MegaMenuItem href="/kids/school-shoes">
                 School Shoes
-              </MegaMenuItems>
-              <MegaMenuItems href="/kids/activewear">Activewear</MegaMenuItems>
-              <MegaMenuItems href="/kids/swimwear">Swimwear</MegaMenuItems>
+              </MegaMenuItem>
+              <MegaMenuItem href="/kids/activewear">Activewear</MegaMenuItem>
+              <MegaMenuItem href="/kids/swimwear">Swimwear</MegaMenuItem>
             </MegeMenuCol>
           </div>
         </MegaMenu>
       )}
 
       <div
-        className={`flex-col items-center gap-4 p-4 bg-white z-20 transition-all duration-200 ease-in-out w-full mt-2 rounded shadow sm:hidden
+        className={`flex-col items-center gap-4 p-4 bg-white z-20 transition-all duration-200 ease-in-out w-full min-h-screen mt-2 rounded shadow sm:hidden
         ${menuOpen ? "flex" : "hidden"}`}
       >
         <div className="grid grid-cols-3 gap-4 w-full">
