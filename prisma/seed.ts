@@ -5,56 +5,81 @@ const prisma = new PrismaClient();
 async function main() {
   console.log("🌱 Starting database seed...");
 
-  // Clear existing data
+  // Clear existing data in the correct order (respecting foreign key constraints)
+  console.log("🗑️  Clearing existing data...");
   await prisma.product_images.deleteMany();
   await prisma.product_variants.deleteMany();
   await prisma.products.deleteMany();
   await prisma.categories.deleteMany();
   await prisma.gender.deleteMany();
+  await prisma.user.deleteMany();
 
-  console.log("🗑️  Cleared existing data");
+  // Reset auto-increment sequences (PostgreSQL specific)
+  try {
+    await prisma.$executeRaw`ALTER SEQUENCE "user_id_seq" RESTART WITH 1;`;
+    await prisma.$executeRaw`ALTER SEQUENCE "products_id_seq" RESTART WITH 1;`;
+    await prisma.$executeRaw`ALTER SEQUENCE "categories_id_seq" RESTART WITH 1;`;
+    await prisma.$executeRaw`ALTER SEQUENCE "gender_id_seq" RESTART WITH 1;`;
+    await prisma.$executeRaw`ALTER SEQUENCE "product_variants_id_seq" RESTART WITH 1;`;
+    await prisma.$executeRaw`ALTER SEQUENCE "product_images_id_seq" RESTART WITH 1;`;
+    console.log("🔄 Reset auto-increment sequences");
+  } catch (error) {
+    console.log(
+      "⚠️  Could not reset sequences (this is normal for some databases)"
+    );
+  }
+
+  console.log("✅ Database cleared and ready for seeding");
 
   // Create genders
-  const male = await prisma.gender.create({
-    data: { name: "Male" },
+  const men = await prisma.gender.create({
+    data: { name: "Men" },
   });
 
-  const female = await prisma.gender.create({
-    data: { name: "Female" },
+  const women = await prisma.gender.create({
+    data: { name: "Women" },
   });
 
   const kids = await prisma.gender.create({
     data: { name: "Kids" },
   });
 
-  console.log("👥 Created genders");  
+  console.log("👥 Created genders:");
+  console.log(`  - Men (ID: ${men.id})`);
+  console.log(`  - Women (ID: ${women.id})`);
+  console.log(`  - Kids (ID: ${kids.id})`);
 
   // Create categories
   const categories = await Promise.all([
     prisma.categories.create({
-      data: { name: "T-Shirts", genderId: male.id },
+      data: { name: "t-shirts", genderId: men.id },
     }),
     prisma.categories.create({
-      data: { name: "Hoodies", genderId: male.id },
+      data: { name: "hoodies", genderId: men.id },
     }),
     prisma.categories.create({
-      data: { name: "Jeans", genderId: male.id },
+      data: { name: "jeans", genderId: men.id },
     }),
     prisma.categories.create({
-      data: { name: "Dresses", genderId: female.id },
+      data: { name: "dresses", genderId: women.id },
     }),
     prisma.categories.create({
-      data: { name: "Blouses", genderId: female.id },
+      data: { name: "blouses", genderId: women.id },
     }),
     prisma.categories.create({
-      data: { name: "Sneakers", genderId: kids.id },
+      data: { name: "sneakers", genderId: kids.id },
     }),
     prisma.categories.create({
-      data: { name: "Accessories", genderId: kids.id },
+      data: { name: "accessories", genderId: kids.id },
     }),
   ]);
 
-  console.log("📂 Created categories");
+  console.log("📂 Created categories:");
+  categories.forEach((category, index) => {
+    console.log(
+      `  - ${category.name} (ID: ${category.id}, Gender ID: ${category.genderId})`
+    );
+  });
 
   // Sample products data
   const productsData = [
@@ -155,7 +180,7 @@ async function main() {
         "Modern slim fit jeans with stretch comfort and classic styling.",
       price: 79.99,
       categoryId: categories[2].id, // Jeans
-      
+
       variants: [
         {
           size: "30x32",
@@ -351,10 +376,32 @@ async function main() {
       )
     );
 
-    console.log(`✅ Created product: ${product.name}`);
+    console.log(`✅ Created product: ${product.name} (ID: ${product.id})`);
   }
 
   console.log("🎉 Database seeding completed!");
+
+  // Final verification
+  const finalGenders = await prisma.gender.findMany();
+  const finalCategories = await prisma.categories.findMany();
+  const finalProducts = await prisma.products.findMany();
+
+  console.log("\n📊 Final database state:");
+  console.log(
+    `  - Genders: ${finalGenders.length} (IDs: ${finalGenders
+      .map((g) => g.id)
+      .join(", ")})`
+  );
+  console.log(
+    `  - Categories: ${finalCategories.length} (IDs: ${finalCategories
+      .map((c) => c.id)
+      .join(", ")})`
+  );
+  console.log(
+    `  - Products: ${finalProducts.length} (IDs: ${finalProducts
+      .map((p) => p.id)
+      .join(", ")})`
+  );
 }
 
 main()
