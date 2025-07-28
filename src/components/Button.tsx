@@ -25,27 +25,66 @@ const Button = ({
       return (
         <button
           onClick={onClick}
-          className={`${baseClasses} bg-black text-white border-black hover:bg-white hover:text-black hover:border-black ${className}`}
+          disabled={isLoading || disabled}
+          className={`${baseClasses} bg-black text-white border-black disabled:opacity-50 disabled:cursor-not-allowed   hover:bg-white hover:text-black hover:border-black ${className}`}
         >
-          {isLoading ? <Loader2 className="animate-spin" /> : disabled ? <Loader2 className="animate-spin" /> : children}
+          {isLoading ? (
+            <div className="flex justify-center items-center gap-2">
+              <Loader2 className="animate-spin" />
+              <span>Loading...</span>
+            </div>
+          ) : disabled ? (
+            <div className="flex justify-center items-center gap-2">
+              <Loader2 className="animate-spin" />
+              <span>Loading...</span>
+            </div>
+          ) : (
+            children
+          )}
         </button>
       );
     case "secondary":
       return (
         <button
           onClick={onClick}
-          className={`${baseClasses} bg-none text-white border-white hover:bg-white hover:text-black ${className}`}
+          disabled={isLoading || disabled}
+          className={`${baseClasses} bg-none text-white border-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white hover:text-black ${className}`}
         >
-          {isLoading ? <Loader2 className="animate-spin" /> : disabled ? <Loader2 className="animate-spin" /> : children}
+          {isLoading ? (
+            <div className="flex justify-center items-center gap-2">
+              <Loader2 className="animate-spin" />
+              <span>Loading...</span>
+            </div>
+          ) : disabled ? (
+            <div className="flex justify-center items-center gap-2">
+              <Loader2 className="animate-spin" />
+              <span>Loading...</span>
+            </div>
+          ) : (
+            children
+          )}
         </button>
       );
     default:
       return (
         <button
           onClick={onClick}
-          className={`${baseClasses} bg-none text-black border-black hover:bg-black hover:text-white ${className}`}
+          disabled={isLoading || disabled}
+          className={`${baseClasses} bg-none text-black border-black disabled:opacity-50 disabled:cursor-not-allowed hover:bg-black hover:text-white ${className}`}
         >
-          {isLoading ? <Loader2 className="animate-spin" /> : disabled ? <Loader2 className="animate-spin" /> : children}
+          {isLoading ? (
+            <div className="flex justify-center items-center gap-2">
+              <Loader2 className="animate-spin" />
+              <span>Loading...</span>
+            </div>
+          ) : disabled ? (
+            <div className="flex justify-center items-center gap-2">
+              <Loader2 className="animate-spin" />
+              <span>Loading...</span>
+            </div>
+          ) : (
+            children
+          )}
         </button>
       );
   }

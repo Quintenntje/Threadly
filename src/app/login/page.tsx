@@ -14,7 +14,7 @@ const Login = () => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-    
+
   };
 
   return (
@@ -33,7 +33,7 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button isLoading={isLoading} variant="primary">Login</Button>
+        <Button isLoading={isLoading} disabled={isLoading} variant="primary">Login</Button>
       </form>
       <p className="text-sm text-gray-500">
         Don&apos;t have an account?{" "}
