@@ -1,6 +1,4 @@
-import NavBar from "@/components/Nav/NavBar";
 import Hero from "@/components/hero";
-import Footer from "@/components/Footer";
 import { PrismaClient } from "../generated/prisma";
 import ProductCard from "@/components/ProductCard";
 import CategoryCard from "@/components/CategoryCard";
@@ -15,7 +13,6 @@ const categories = await prisma.categories.findMany();
 export default async function Home() {
   return (
     <div>
-      <NavBar />
       <Hero />
       <Container isSection>
         <SectionTitle>Products</SectionTitle>
@@ -33,7 +30,6 @@ export default async function Home() {
           ))}
         </div>
       </Container>
-      <Footer />
     </div>
   );
 }

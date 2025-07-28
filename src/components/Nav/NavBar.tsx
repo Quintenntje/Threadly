@@ -92,7 +92,7 @@ const NavBar = () => {
           <Link className="cursor-pointer" href="/search" aria-label="Search">
             <Search size={24} />
           </Link>
-          <Link className="cursor-pointer" href="/user" aria-label="User">
+          <Link className="cursor-pointer" href="/login" aria-label="Login">
             <User size={24} />
           </Link>
           <Link

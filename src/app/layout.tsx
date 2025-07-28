@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { inter, crimson } from "./fonts";
 import "./globals.css";
+import NavBar from "@/components/Nav/NavBar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Threadly",
@@ -14,7 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${crimson.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <NavBar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

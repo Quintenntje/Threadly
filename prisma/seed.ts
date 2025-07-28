@@ -155,6 +155,7 @@ async function main() {
         "Modern slim fit jeans with stretch comfort and classic styling.",
       price: 79.99,
       categoryId: categories[2].id, // Jeans
+      
       variants: [
         {
           size: "30x32",
