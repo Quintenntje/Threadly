@@ -44,9 +44,12 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen gap-4">
+    <div className="flex flex-col items-center justify-center min-h-screen gap-4 p-4">
       <h1 className="text-4xl font-bold mb-4">Login</h1>
-      <form onSubmit={handleLogin} className="flex flex-col gap-4 w-1/3">
+      <form
+        onSubmit={handleLogin}
+        className="flex flex-col gap-4 w-full max-w-md mx-auto"
+      >
         <Input
           type="text"
           placeholder="Email"
@@ -55,6 +58,16 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
+
+        <div className="flex justify-end">
+          <Link
+            href="/forgot-password"
+            className="text-sm text-blue-500 hover:underline"
+          >
+            Forgot Password?
+          </Link>
+        </div>
+
         <Input
           type="password"
           placeholder="Password"
@@ -72,7 +85,7 @@ const Login = () => {
       </form>
       <p className="text-sm text-gray-500">
         Don&apos;t have an account?{" "}
-        <Link href="/register" className="text-blue-500">
+        <Link href="/register" className="text-blue-500 hover:underline">
           Register
         </Link>
       </p>

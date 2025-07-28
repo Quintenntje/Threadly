@@ -77,10 +77,13 @@ const Register = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen gap-4">
+    <div className="flex flex-col items-center justify-center min-h-screen gap-4 p-4">
       <h1 className="text-4xl font-bold mb-4">Register</h1>
-      <form onSubmit={handleRegister} className="flex flex-col gap-4 w-1/3">
-        <div className="grid grid-cols-2 gap-4">
+      <form
+        onSubmit={handleRegister}
+        className="flex flex-col gap-4 w-full max-w-md mx-auto"
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <Input
               type="text"
@@ -144,7 +147,7 @@ const Register = () => {
       </form>
       <p className="text-sm text-gray-500">
         Already have an account?{" "}
-        <Link href="/login" className="text-blue-500">
+        <Link href="/login" className="text-blue-500 hover:underline">
           Login
         </Link>
       </p>
