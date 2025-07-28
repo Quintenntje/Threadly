@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Search, User, ShoppingCart, Menu } from "lucide-react";
+import { Search, User, ShoppingCart, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import ByGender from "./ByGender";
 import { usePathname } from "next/navigation";
@@ -108,7 +108,7 @@ const NavBar = () => {
             aria-label="Toggle menu"
             onClick={() => setMenuOpen((open) => !open)}
           >
-            <Menu size={28} />
+            {menuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
