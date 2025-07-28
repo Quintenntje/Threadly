@@ -31,7 +31,7 @@ const NavBar = () => {
         genderFromUrl.charAt(0).toUpperCase() + genderFromUrl.slice(1)
       );
     } else {
-      setByGender("");
+      setByGender("Men");
     }
   }, [pathname]);
 
