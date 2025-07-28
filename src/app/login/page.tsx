@@ -8,13 +8,41 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
 
+    if (email.length === 0) {
+      setEmailError("Please fill in email");
+      setIsLoading(false);
+      return;
+    }
+
+    if (password.length === 0) {
+      setPasswordError("Please fill in password");
+      setIsLoading(false);
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setEmailError("Invalid email");
+      setIsLoading(false);
+      return;
+    }
+
+    if (password.length < 8) {
+      setPasswordError("Password must be at least 8 characters long");
+
+      setIsLoading(false);
+      return;
+    }
+
+    setEmailError("");
+    setPasswordError("");
+    setIsLoading(false);
   };
 
   return (
@@ -25,15 +53,24 @@ const Login = () => {
           type="text"
           placeholder="Email"
           value={email}
+          className={`${emailError ? "border-red-500" : ""}`}
           onChange={(e) => setEmail(e.target.value)}
         />
+        {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
         <Input
           type="password"
           placeholder="Password"
           value={password}
+          className={`${passwordError ? "border-red-500" : ""}`}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button isLoading={isLoading} disabled={isLoading} variant="primary">Login</Button>
+
+        {passwordError && (
+          <p className="text-red-500 text-sm">{passwordError}</p>
+        )}
+        <Button isLoading={isLoading} disabled={isLoading} variant="primary">
+          Login
+        </Button>
       </form>
       <p className="text-sm text-gray-500">
         Don&apos;t have an account?{" "}
