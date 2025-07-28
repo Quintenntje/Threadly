@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description: "Threadly is a platform for selling and buying clothes",
 };
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{

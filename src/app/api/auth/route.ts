@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "../../../../prisma/lib/prisma";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import cookieParser from "cookie-parser";
+import { getCurrentUser } from "@/lib/auth";
 
 export async function POST(request: NextRequest) {
   try {
@@ -32,28 +32,39 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET!, {
       expiresIn: "24h",
-    });
-
-    const cookie = cookieParser.serialize("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      maxAge: 24 * 60 * 60 * 1000,
-      path: "/",
     });
 
     const response = NextResponse.json(
       { message: "Login successful", user },
       { status: 200 }
     );
-    response.headers.set("Set-Cookie", cookie);
+
+    
+    response.cookies.set("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 24 * 60 * 60,
+      path: "/",
+    });
+
     return response;
   } catch (error) {
-    console.error("Error creating user:", error);
+    console.error("Error during login:", error);
     return NextResponse.json(
-      { error: "Failed to create user" },
+      { error: "Failed to authenticate user" },
       { status: 500 }
     );
   }
+}
+
+export async function GET(request: NextRequest) {
+  const user = await getCurrentUser(request);
+
+  if (!user) {
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+  }
+
+  return NextResponse.json({ user }, { status: 200 });
 }

@@ -10,13 +10,23 @@ import MegaMenuItem from "./MegaMenu/MegaMenuItem";
 import MegeMenuCol from "./MegaMenu/MegeMenuCol";
 import ExpandDropdown from "./ExpandDropdown/ExpandDropdown";
 import ExpandDropdownItem from "./ExpandDropdown/ExpandDropdownItem";
+import { checkUserAuth } from "@/lib/auth";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState<string | null>(null);
   const [byGender, setByGender] = useState<string>("");
+  const [user, setUser] = useState<any | null>(null);
 
   const pathname = usePathname();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await checkUserAuth();
+      setUser(user);
+    };
+    fetchUser();
+  }, []);
 
   useEffect(() => {
     const pathSegments = pathname.split("/").filter(Boolean);
@@ -42,6 +52,8 @@ const NavBar = () => {
   const handleCloseMegaMenu = () => {
     setMegaMenuOpen(null);
   };
+
+
 
   return (
     <nav
@@ -92,9 +104,23 @@ const NavBar = () => {
           <Link className="cursor-pointer" href="/search" aria-label="Search">
             <Search size={24} />
           </Link>
-          <Link className="cursor-pointer" href="/login" aria-label="Login">
-            <User size={24} />
-          </Link>
+          {user && user.role === "user" ? (
+            <Link
+              className="cursor-pointer"
+              href="/profile"
+              aria-label="Profile"
+            >
+              <User size={24} />
+            </Link>
+          ) : user && user.role === "admin" ? (
+            <Link className="cursor-pointer" href="/admin" aria-label="Admin">
+              <User size={24} />
+            </Link>
+          ) : (
+            <Link className="cursor-pointer" href="/login" aria-label="Login">
+              <User size={24} />
+            </Link>
+          )}
           <Link
             className="cursor-pointer"
             href="/cart"
