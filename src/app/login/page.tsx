@@ -2,6 +2,7 @@
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Login = () => {
@@ -11,11 +12,15 @@ const Login = () => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
+  const router = useRouter();
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setEmailError("");
     setPasswordError("");
     setIsLoading(true);
+
+    setEmail(email.toLowerCase());
 
     if (email.length === 0) {
       setEmailError("Please fill in email");
@@ -41,6 +46,23 @@ const Login = () => {
       setIsLoading(false);
       return;
     }
+
+    const response = await fetch("/api/auth", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      setIsLoading(false);
+      setEmailError(errorData.message);
+      return;
+    }
+
+    router.push("/");
   };
 
   return (

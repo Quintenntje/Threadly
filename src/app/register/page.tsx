@@ -30,6 +30,8 @@ const Register = () => {
     setFirstNameError("");
     setLastNameError("");
 
+    setEmail(email.toLowerCase());
+
     if (firstName.length === 0) {
       setFirstNameError("Please fill in first name");
       setIsLoading(false);
