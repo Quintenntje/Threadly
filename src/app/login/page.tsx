@@ -13,6 +13,8 @@ const Login = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
+    setEmailError("");
+    setPasswordError("");
     setIsLoading(true);
 
     if (email.length === 0) {
@@ -39,10 +41,6 @@ const Login = () => {
       setIsLoading(false);
       return;
     }
-
-    setEmailError("");
-    setPasswordError("");
-    setIsLoading(false);
   };
 
   return (
