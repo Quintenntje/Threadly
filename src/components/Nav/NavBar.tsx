@@ -276,7 +276,7 @@ const NavBar = () => {
       )}
 
       <div
-        className={`flex-col items-center gap-4 p-4 bg-white z-20 transition-all duration-200 ease-in-out w-full min-h-screen mt-2 rounded shadow sm:hidden
+        className={`flex-col items-center gap-4 p-4 bg-white z-20 transition-all duration-200 ease-in-out w-full min-h-screen mt-2
         ${menuOpen ? "flex" : "hidden"}`}
       >
         <div className="grid grid-cols-3 gap-4 w-full">
