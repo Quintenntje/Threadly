@@ -78,7 +78,7 @@ const Register = () => {
       return;
     }
 
-    const response = await fetch("/api/signup", {
+    const response = await fetch("/api/user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -102,6 +102,7 @@ const Register = () => {
     <div className="flex flex-col items-center justify-center min-h-screen gap-4 p-4">
       <h1 className="text-4xl font-bold mb-4">Register</h1>
       <form
+        method="POST"
         onSubmit={handleRegister}
         className="flex flex-col gap-4 w-full max-w-md mx-auto"
       >
