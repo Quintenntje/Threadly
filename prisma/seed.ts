@@ -14,7 +14,7 @@ async function main() {
   await prisma.gender.deleteMany();
   await prisma.user.deleteMany();
 
-  // Reset auto-increment sequences (PostgreSQL specific)
+  // Res
   try {
     await prisma.$executeRaw`ALTER SEQUENCE "user_id_seq" RESTART WITH 1;`;
     await prisma.$executeRaw`ALTER SEQUENCE "products_id_seq" RESTART WITH 1;`;

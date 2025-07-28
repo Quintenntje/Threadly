@@ -1,6 +1,7 @@
 "use client";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -17,7 +18,9 @@ const Register = () => {
   const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
 
-  const handleRegister = (e: React.FormEvent) => {
+  const router = useRouter();
+
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -74,6 +77,25 @@ const Register = () => {
       setIsLoading(false);
       return;
     }
+
+    const response = await fetch("/api/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password, firstName, lastName }),
+    });
+
+    console.log(response);
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      setIsLoading(false);
+      setEmailError(errorData.message);
+      return;
+    }
+
+    router.push("/login");
   };
 
   return (
