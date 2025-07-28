@@ -11,12 +11,13 @@ import MegeMenuCol from "./MegaMenu/MegeMenuCol";
 import ExpandDropdown from "./ExpandDropdown/ExpandDropdown";
 import ExpandDropdownItem from "./ExpandDropdown/ExpandDropdownItem";
 import { checkUserAuth } from "@/lib/auth";
+import { User as UserType } from "@/types/user";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState<string | null>(null);
   const [byGender, setByGender] = useState<string>("");
-  const [user, setUser] = useState<any | null>(null);
+  const [user, setUser] = useState<UserType | null>(null);
 
   const pathname = usePathname();
 
