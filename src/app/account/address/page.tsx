@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 import Container from "@/components/Container";
 import Button from "@/components/Button";
 import AccountNavLink from "@/components/accountNav/AccountNavLink";
-import AccountTitle from "@/components/AccountTitle";
+import SubpageTitle from "@/components/SubpageTitle";
 
 interface AddressType {
   id: string;
@@ -65,7 +65,7 @@ const Address = () => {
 
   return (
     <div>
-      <AccountTitle>Address</AccountTitle>
+      <SubpageTitle>Address</SubpageTitle>
       <Container className="flex items-center justify-center flex-col max-w-[400px] gap-4 p-8 border border-gray-200">
         <div className="flex flex-col gap-4">
           <p className="text-lg font-medium">

@@ -1,5 +1,12 @@
+import SubpageTitle from "@/components/SubpageTitle";
+import Container from "@/components/Container";
+
 const Cart = () => {
-  return <div>Cart</div>;
+  return (
+    <Container>
+      <SubpageTitle>Cart</SubpageTitle>
+    </Container>
+  );
 };
 
 export default Cart;

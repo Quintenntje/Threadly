@@ -4,7 +4,7 @@ import { User as UserType } from "@/types/user";
 
 import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
-import AccountTitle from "@/components/AccountTitle";
+import SubpageTitle from "@/components/SubpageTitle";
 
 const Account = () => {
   const [user, setUser] = useState<UserType | null>(null);
@@ -17,13 +17,13 @@ const Account = () => {
       if (!user) {
         redirect("/login");
       }
-    };  
+    };
     fetchUser();
   }, []);
 
   return (
     <div>
-      <AccountTitle>Account</AccountTitle>
+      <SubpageTitle>Account</SubpageTitle>
     </div>
   );
 };
