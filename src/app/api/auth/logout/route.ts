@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { redirect } from "next/navigation";
 
 export async function POST() {
   const response = NextResponse.json(
@@ -7,7 +8,7 @@ export async function POST() {
   );
   response.cookies.delete("token");
 
-return response;
+  return response;
 }
 
 export async function GET() {
@@ -17,7 +18,5 @@ export async function GET() {
   );
   response.cookies.delete("token");
 
-  return response;
-
-
+  redirect("/");
 }
