@@ -1,22 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
+
 import { redirect } from "next/navigation";
-
-export async function POST() {
-  const response = NextResponse.json(
-    { message: "Logged out" },
-    { status: 200 }
-  );
-  response.cookies.delete("token");
-
-  return response;
-}
+import { cookies } from "next/headers";
 
 export async function GET() {
-  const response = NextResponse.json(
-    { message: "Logged out" },
-    { status: 200 }
-  );
-  response.cookies.delete("token");
+  const cookieStore = await cookies();
+  cookieStore.delete("token");
 
   redirect("/");
 }

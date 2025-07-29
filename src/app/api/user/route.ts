@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
       data: {
         firstName,
         lastName,
-        email,
+        email: email.toLowerCase(),
         password: hashedPassword,
       },
     });
