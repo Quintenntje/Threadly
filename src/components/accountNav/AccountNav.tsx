@@ -10,7 +10,9 @@ const AccountNav = () => {
   };
 
   return (
-    <div className="flex justify-center items-center w-full min-h-[50px] bg-gray-100">
+    <div className="flex justify-between items-center w-full min-h-[50px] bg-gray-100 px-4">
+      <div className="w-20"></div>
+
       <ul className="flex justify-center items-center gap-4 h-full">
         <li className="h-full">
           <AccountNavLink href="/account" isActive={isActive("/account")}>
@@ -26,6 +28,12 @@ const AccountNav = () => {
           </AccountNavLink>
         </li>
       </ul>
+
+      <div className="flex justify-end items-center h-full w-20">
+        <AccountNavLink href="/account/logout" isActive={false}>
+          Logout
+        </AccountNavLink>
+      </div>
     </div>
   );
 };
