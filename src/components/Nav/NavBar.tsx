@@ -54,8 +54,6 @@ const NavBar = () => {
     setMegaMenuOpen(null);
   };
 
-
-
   return (
     <nav
       onMouseLeave={() => setMegaMenuOpen(null)}
@@ -108,13 +106,17 @@ const NavBar = () => {
           {user && user.role === "user" ? (
             <Link
               className="cursor-pointer"
-              href="/profile"
-              aria-label="Profile"
+              href="/account"
+              aria-label="Account"
             >
               <User size={24} />
             </Link>
           ) : user && user.role === "admin" ? (
-            <Link className="cursor-pointer" href="/dashboard" aria-label="Admin">
+            <Link
+              className="cursor-pointer"
+              href="/dashboard"
+              aria-label="Admin"
+            >
               <User size={24} />
             </Link>
           ) : (

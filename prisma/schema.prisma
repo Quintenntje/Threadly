@@ -15,6 +15,7 @@ model user {
   email     String   @unique
   password  String
   role      String   @default("user")
+  adresses  adresses[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -72,3 +73,22 @@ model product_images {
   updatedAt DateTime @updatedAt
   product   products @relation(fields: [productId], references: [id])
 }
+
+model adresses {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      user     @relation(fields: [userId], references: [id])
+  address   String?
+  address2  String?
+  city      String?
+  postalCode String?
+  country   String?
+  phone     String?
+}
+
+
+
+
+
