@@ -1,3 +1,4 @@
+"use client";
 import { usePathname } from "next/navigation";
 import AccountNavLink from "./AccountNavLink";
 
@@ -9,14 +10,14 @@ const AccountNav = () => {
   };
 
   return (
-    <div className="w-full bg-gray-100">
-      <ul className="flex justify-center items-center flex-col gap-4 pb-4">
-        <li>
+    <div className="flex justify-center items-center w-full min-h-[50px] bg-gray-100">
+      <ul className="flex justify-center items-center gap-4 h-full">
+        <li className="h-full">
           <AccountNavLink href="/account" isActive={isActive("/account")}>
             Orders
           </AccountNavLink>
         </li>
-        <li>
+        <li className="h-full">
           <AccountNavLink
             href="/account/address"
             isActive={isActive("/account/address")}

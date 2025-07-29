@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { inter, crimson } from "./fonts";
-import "./globals.css";
-import NavBar from "@/components/Nav/NavBar";
-import Footer from "@/components/Footer";
+import { inter, crimson } from "../fonts";
+import "../globals.css";
 import AccountNav from "@/components/accountNav/AccountNav";
+import Container from "@/components/Container";
 
 export const metadata: Metadata = {
   title: "Threadly",
@@ -18,11 +17,8 @@ export default function AccountLayout({
   return (
     <html lang="en" className={`${inter.variable} ${crimson.variable}`}>
       <body className="antialiased">
-        <NavBar />
         <AccountNav />
-
-        {children}
-        <Footer />
+        <Container>{children}</Container>
       </body>
     </html>
   );
