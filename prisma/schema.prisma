@@ -15,7 +15,7 @@ model user {
   email     String   @unique
   password  String
   role      String   @default("user")
-  adresses  adresses[]
+  address   address[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
