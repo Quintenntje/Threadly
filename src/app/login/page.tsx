@@ -93,7 +93,7 @@ const Login = () => {
           placeholder="Email"
           value={email}
           className={`${emailError ? "border-red-500" : ""}`}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value.trim())}
         />
         {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
 
@@ -111,7 +111,7 @@ const Login = () => {
           placeholder="Password"
           value={password}
           className={`${passwordError ? "border-red-500" : ""}`}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value.trim())}
         />
 
         {passwordError && (

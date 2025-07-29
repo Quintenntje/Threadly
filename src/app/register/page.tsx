@@ -112,7 +112,7 @@ const Register = () => {
               placeholder="First Name"
               value={firstName}
               className={`${firstNameError ? "border-red-500" : ""}`}
-              onChange={(e) => setFirstName(e.target.value)}
+              onChange={(e) => setFirstName(e.target.value.trim())}
             />
             {firstNameError && (
               <p className="text-red-500 text-sm">{firstNameError}</p>
@@ -124,8 +124,8 @@ const Register = () => {
               placeholder="Last Name"
               value={lastName}
               className={`${lastNameError ? "border-red-500" : ""}`}
-              onChange={(e) => setLastName(e.target.value)}
-            />
+              onChange={(e) => setLastName(e.target.value.trim())}
+            />  
             {lastNameError && (
               <p className="text-red-500 text-sm">{lastNameError}</p>
             )}
@@ -137,7 +137,7 @@ const Register = () => {
           placeholder="Email"
           value={email}
           className={`${emailError ? "border-red-500" : ""}`}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value.trim())}
         />
         {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
 
@@ -146,7 +146,7 @@ const Register = () => {
           placeholder="Password"
           value={password}
           className={`${passwordError ? "border-red-500" : ""}`}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value.trim())}
         />
         {passwordError && (
           <p className="text-red-500 text-sm">{passwordError}</p>
@@ -157,7 +157,7 @@ const Register = () => {
           placeholder="Confirm Password"
           value={confirmPassword}
           className={`${confirmPasswordError ? "border-red-500" : ""}`}
-          onChange={(e) => setConfirmPassword(e.target.value)}
+          onChange={(e) => setConfirmPassword(e.target.value.trim())}
         />
         {confirmPasswordError && (
           <p className="text-red-500 text-sm">{confirmPasswordError}</p>
