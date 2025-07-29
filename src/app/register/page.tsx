@@ -30,6 +30,8 @@ const Register = () => {
     setFirstNameError("");
     setLastNameError("");
 
+    setEmail(email.toLowerCase());
+
     if (firstName.length === 0) {
       setFirstNameError("Please fill in first name");
       setIsLoading(false);
@@ -125,7 +127,7 @@ const Register = () => {
               value={lastName}
               className={`${lastNameError ? "border-red-500" : ""}`}
               onChange={(e) => setLastName(e.target.value.trim())}
-            />  
+            />
             {lastNameError && (
               <p className="text-red-500 text-sm">{lastNameError}</p>
             )}
