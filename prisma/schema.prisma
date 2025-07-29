@@ -74,7 +74,7 @@ model product_images {
   product   products @relation(fields: [productId], references: [id])
 }
 
-model adresses {
+model address {
   id        Int      @id @default(autoincrement())
   userId    Int
   createdAt DateTime @default(now())

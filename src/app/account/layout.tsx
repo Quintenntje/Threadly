@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { inter, crimson } from "../fonts";
 import "../globals.css";
 import AccountNav from "@/components/accountNav/AccountNav";
 import Container from "@/components/Container";
@@ -15,11 +14,9 @@ export default function AccountLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${crimson.variable}`}>
-      <body className="antialiased">
-        <AccountNav />
-        <Container>{children}</Container>
-      </body>
-    </html>
+    <>
+      <AccountNav />
+      <Container>{children}</Container>
+    </>
   );
 }
