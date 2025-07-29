@@ -3,7 +3,9 @@ import Button from "@/components/Button";
 import Input from "@/components/Input";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { checkUserAuth } from "@/lib/auth";
+import { User as UserType } from "@/types/user";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +14,21 @@ const Login = () => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
+  const [user, setUser] = useState<UserType | null>(null);
+
   const router = useRouter();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await checkUserAuth();
+      setUser(user);
+
+      if (user) {
+        router.replace("/");
+      }
+    };
+    fetchUser();
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

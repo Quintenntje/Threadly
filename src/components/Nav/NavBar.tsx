@@ -114,7 +114,7 @@ const NavBar = () => {
               <User size={24} />
             </Link>
           ) : user && user.role === "admin" ? (
-            <Link className="cursor-pointer" href="/admin" aria-label="Admin">
+            <Link className="cursor-pointer" href="/dashboard" aria-label="Admin">
               <User size={24} />
             </Link>
           ) : (
