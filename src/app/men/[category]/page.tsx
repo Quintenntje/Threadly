@@ -44,7 +44,6 @@ const CategoryPage = async ({ params }: CategoryPageProps) => {
           Products - {category} ({gender})
         </SectionTitle>
 
-        <section className="flex  justify-between  gap-4"></section>
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {productsData.map((product: products) => (
             <ProductCard key={product.id} product={product} />

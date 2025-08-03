@@ -3,6 +3,7 @@ import Container from "@/components/Container";
 import ProductCard from "@/components/ProductCard";
 import SectionTitle from "@/components/SectionTitle";
 import { products } from "../../../generated/prisma";
+import BreadCrumbs from "@/components/BreadCrumbs";
 
 const prisma = new PrismaClient();
 
@@ -37,6 +38,7 @@ const CategoryPage = async ({ params }: CategoryPageProps) => {
   return (
     <div>
       <Container isSection>
+        <BreadCrumbs />
         <SectionTitle>
           Products - {category} ({gender})
         </SectionTitle>
