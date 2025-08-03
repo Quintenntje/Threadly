@@ -1,8 +1,10 @@
 import { PrismaClient } from "../../../generated/prisma";
 import Container from "@/components/Container";
 import ProductCard from "@/components/ProductCard";
-import SectionTitle from "@/components/SectionTitle";
 import { products } from "../../../generated/prisma";
+import SubpageTitle from "@/components/SubpageTitle";
+import BreadCrumbs from "@/components/BreadCrumbs";
+import SectionTitle from "@/components/SectionTitle";
 
 const prisma = new PrismaClient();
 
@@ -34,15 +36,16 @@ const CategoryPage = async ({ params }: CategoryPageProps) => {
     },
   });
 
-  console.log(`Found ${productsData.length} products`);
-
   return (
     <div>
       <Container isSection>
+        <BreadCrumbs />
         <SectionTitle>
           Products - {category} ({gender})
         </SectionTitle>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <section className="flex  justify-between  gap-4"></section>
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {productsData.map((product: products) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -52,12 +55,11 @@ const CategoryPage = async ({ params }: CategoryPageProps) => {
                 No products found for {category} in {gender} category
               </p>
               <p className="text-sm text-gray-500 mt-2">
-                Available categories for {gender}:{" "}
-                t-shirts, hoodies, jeans
+                Available categories for {gender}: t-shirts, hoodies, jeans
               </p>
             </div>
           )}
-        </div>
+        </section>
       </Container>
     </div>
   );
